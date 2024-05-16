@@ -3,6 +3,7 @@ import counterReducer from '../features/counter/counterSlice';
 import todoReducer from '../features/todos/todoSlice';
 import logger from 'redux-logger'
 import createSagaMiddleware from 'redux-saga';
+import { all } from 'redux-saga/effects';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
