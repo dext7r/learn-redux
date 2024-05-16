@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
   Todo,
@@ -6,6 +6,7 @@ import {
   deleteTodo,
   selectTodos,
   toggleTodo,
+  fetchTodos,
 } from "./todoSlice";
 import styles from "./TodoList.module.css";
 
@@ -14,14 +15,19 @@ function TodoList() {
   const dispatch = useAppDispatch();
   const [text, setText] = useState("");
   const isTextEmpty = text.trim() === "";
+
+  useEffect(() => {
+    dispatch(fetchTodos());
+  }, [dispatch]);
+
   const handleAddTodo = () => {
     const trimmedText = text.trim();
     if (trimmedText && !todos.find((todo) => todo.text === trimmedText)) {
       dispatch(addTodo(trimmedText));
       setText("");
     } else {
-      alert(`已存在该项~`)
-      setText("")
+      alert(`已存在该项~`);
+      setText("");
     }
   };
 

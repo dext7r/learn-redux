@@ -4,6 +4,7 @@ import todoReducer from '../features/todos/todoSlice';
 import logger from 'redux-logger'
 import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
+import { watchFetchTodos } from '../features/sagas';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -14,7 +15,7 @@ const sagaMiddleware = createSagaMiddleware();
 function* rootSaga() {
   // 在此处放置你的所有 saga 函数
   yield all([
-    // saga 函数列表
+    watchFetchTodos(),
   ]);
 }
 
