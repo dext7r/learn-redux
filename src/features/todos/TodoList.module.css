@@ -1,0 +1,47 @@
+/* src/features/todos/TodoList.module.css */
+.row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .textbox {
+    flex: 1;
+    padding: 8px;
+    margin-right: 10px;
+  }
+  
+  .button {
+    padding: 8px 16px;
+    margin-right: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .button:disabled {
+    background-color: grey;
+    color: white;
+  }
+  
+  .list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .listItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .listItem span {
+    flex: 1;
+    cursor: pointer;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+    color: grey;
+  }
